@@ -23,23 +23,3 @@
 
 <!ELEMENT GG EMPTY>
 <!-- Ejemplo -->
-<!--<HERO name="Anti_Squirrel_Logic">
-    <START_MATCH>
-        <HP_CHECK>
-            <CONDITION>Character == 'Squirrel_Girl'</CONDITION>
-            <STUN/>
-            <ABILITY>KICK_PLAYER</ABILITY>
-        </HP_CHECK>
-        
-        <TEAM_UP>
-            <ABILITY>Load_Tokyo_Map</ABILITY>
-            <ABILITY>Sync_Voice_Chat</ABILITY>
-        </TEAM_UP>
-        
-        <RESPAWN>
-            <ABILITY>Scan_Enemies</ABILITY>
-        </RESPAWN>
-    </START_MATCH>
-    <GG/>
-</HERO>
--->

@@ -1,35 +1,19 @@
-HERO Match_Control [START_MATCH]
-
-<!--1. Verificación de seguridad (Filtro Anti-Squirrel Girl)-->
-    HP_CHECK (Character_Selected == "Squirrel_Girl") {
-        STUN            // Congela su conexión
-        ABILITY KICK_PLAYER("No se permite ese personaje")
-        RESPAWN         // Reinicia la búsqueda de un nuevo jugador
-    }
-
-    <!--// 2. Preparación de la arena-->
-    TEAM_UP {
-        ABILITY Load_Map("Tokyo_2099"),
-        ABILITY Sync_Voice_Chat
-    }
-
-    <!--// 3. Inicio del combate-->
-    ABILITY Spawn_Heroes
-    
-    <!--// 4. Ciclo de juego activo-->
-    RESPAWN {
-        // Monitoreo de Ultimate del equipo
-        HP_CHECK (Team_Energy == 100%) {
-            ULTIMATE Unleash_Combo
-            COOLDOWN 10s // Tiempo de recuperación global
-        }
-
-        // Si el servidor se sobrecarga
-        HP_CHECK (Server_Lag > 200ms) {
-            STUN
-            ABILITY Refresh_Server
-            COOLDOWN 3s
-        }
-    }
-
-[GG]
+<HERO name="Anti_Squirrel_Logic">
+    <START_MATCH>
+        <HP_CHECK>
+            <CONDITION>Character == 'Squirrel_Girl'</CONDITION>
+            <STUN/>
+            <ABILITY>KICK_PLAYER</ABILITY>
+        </HP_CHECK>
+        
+        <TEAM_UP>
+            <ABILITY>Load_Tokyo_Map</ABILITY>
+            <ABILITY>Sync_Voice_Chat</ABILITY>
+        </TEAM_UP>
+        
+        <RESPAWN>
+            <ABILITY>Scan_Enemies</ABILITY>
+        </RESPAWN>
+    </START_MATCH>
+    <GG/>
+</HERO>
