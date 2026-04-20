@@ -1,0 +1,45 @@
+<!ELEMENT HERO (START_MATCH)>
+<!ATTLIST HERO 
+          name CDATA #REQUIRED>
+
+<!ELEMENT START_MATCH (ABILITY | ULTIMATE | COOLDOWN | TEAM_UP | HP_CHECK | RESPAWN)*>
+
+<!ELEMENT ABILITY (#PCDATA)>
+<!ATTLIST ABILITY 
+          target CDATA #IMPLIED>
+
+<!ELEMENT ULTIMATE (#PCDATA)>
+
+<!ELEMENT COOLDOWN (#PCDATA)>
+
+<!ELEMENT TEAM_UP (ABILITY, ABILITY+)>
+
+<!ELEMENT HP_CHECK (CONDITION, (ABILITY | ULTIMATE | STUN | RESPAWN)*)>
+<!ELEMENT CONDITION (#PCDATA)>
+
+<!ELEMENT RESPAWN (ABILITY | ULTIMATE | COOLDOWN | TEAM_UP | HP_CHECK | STUN)*>
+
+<!ELEMENT STUN EMPTY>
+
+<!ELEMENT GG EMPTY>
+<!-- Ejemplo -->
+<!--<HERO name="Anti_Squirrel_Logic">
+    <START_MATCH>
+        <HP_CHECK>
+            <CONDITION>Character == 'Squirrel_Girl'</CONDITION>
+            <STUN/>
+            <ABILITY>KICK_PLAYER</ABILITY>
+        </HP_CHECK>
+        
+        <TEAM_UP>
+            <ABILITY>Load_Tokyo_Map</ABILITY>
+            <ABILITY>Sync_Voice_Chat</ABILITY>
+        </TEAM_UP>
+        
+        <RESPAWN>
+            <ABILITY>Scan_Enemies</ABILITY>
+        </RESPAWN>
+    </START_MATCH>
+    <GG/>
+</HERO>
+-->
