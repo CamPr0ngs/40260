@@ -1,3 +1,4 @@
+<!DOCTYPE HERO SYSTEM "gramatica.dtd">
 <HERO name="Anti_Squirrel_Logic">
     <START_MATCH>
         <HP_CHECK>
@@ -17,4 +18,3 @@
     </START_MATCH>
     <GG/>
 </HERO>
--->

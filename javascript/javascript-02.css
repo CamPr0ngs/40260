@@ -1,0 +1,30 @@
+*{
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+button{
+    width: 33.3%;
+    height: 30px;
+}
+
+button[id="b0"]{
+    width: 100%;
+    color: orangered;
+}
+
+.operadores{
+    color: purple;
+}
+
+div {
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input{
+    width: 100px;
+    height: 30px;
+}

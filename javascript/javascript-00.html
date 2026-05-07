@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id="1">Tutilo</h1>
+        <p id="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sequi dolores ex ab quam, perferendis ipsum nisi praesentium, minima voluptates quia at, explicabo a necessitatibus vero magni vel eaque odit.</p>
+        <button id="3" onclick="escribe()">hola</button>
+        <input type="text">
+        <button id="4">color</button>
+        <script>
+            
+            // esto es un comentario:D
+            //const elemento = "cadena" // queda igual 
+            //var elemento = 0 // cambia
+            let elemento = [1,2,3,4] //cambia alcance inmediato si
+
+            // key es una posición
+            for (key in elemento) {
+                console.log(elemento[key])            
+                
+            }
+            function saludar(){
+                // esto es una función
+                console.log("hola mundo")
+
+            }
+            for (i=1; i<10; i++)
+                if (i>10)
+                    console.log("hola mundo")
+            saludar();
+            
+            let boton = document.getElementById("3")
+            console.log(boton)
+
+            function escribe (){
+                // Acceso al DOM = Document Object Model
+                console.log(document.URL)
+                const html = document.getElementById("2")
+                console.log(html.innerText)
+                html.innerText ="Esto es un nuevo texto"
+                
+                // Recuperar texto  del input
+                let entrada = document.getElementsByTagName("input")
+                console.log(entrada[0].value)
+                html.innerText=entrada[0].value
+                /* for (const key in entrada) {
+                    if (!Object.prototype.hasOwnProperty(entrada, key)){
+                    const element = entrada[key];
+                        console.log(element)
+                    }
+                    
+                }*/
+            }
+            let color = document.getElementById("4")
+            // color.addEventListener("click",cambiarColor) // hace callback, no se invoca por si solo con ()
+            
+            color.addEventListener("click",function(){
+                let entrada = document.getElementsByTagName("input")
+                let titulo = document.getElementById("1")
+                titulo.style.color = entrada[0].value
+            }) 
+            
+            
+            /* function cambiarColor(){
+                let titulo = document.getElementById("1")
+                titulo.style.color = "red"
+            } */
+            
+            function cambiarColor(){
+                let entrada = document.getElementsByTagName("input")
+                let titulo = document.getElementById("1")
+                titulo.style.color = entrada[0].value
+            }
+            
+        </script>
+    </body>
+</html>
