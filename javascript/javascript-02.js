@@ -18,7 +18,7 @@ let botones = document.getElementsByTagName("button");
 
 for (const key in botones) {
     if (Object.hasOwnProperty.call(botones, key)) {
-        const boton = botones[key];        
+        const boton = botones[key];
         if (boton.className != "operadores") {
             boton.addEventListener("click", escribirNumero);
         } else {
@@ -27,11 +27,11 @@ for (const key in botones) {
     }
 }
 
-function escribirNumero(e) {    
+function escribirNumero(e) {
     resultado.value += e.target.innerText;
 }
 
-function manejarOperador(e) {
+/*function manejarOperador(e) {
     let valorBoton = e.target.innerText;
 
     if (valorBoton === "CE") {        
@@ -45,9 +45,11 @@ function manejarOperador(e) {
         operacion = valorBoton;
         resultado.value = ""; 
     }
-}
+}*/
 
-function ejecutarOperacion() {
+
+
+/*function ejecutarOperacion() {
     let num2 = parseFloat(resultado.value);
     let total = 0;
 
@@ -69,4 +71,55 @@ function ejecutarOperacion() {
     resultado.value = total;    
     num1 = total;
     operacion = "";
+}*/
+
+let memoria = [];
+let eventos = []
+
+function manejarOperador(e) {
+    let valorBoton = e.target.innerText;
+
+    if (valorBoton === "CE") {
+        resultado.value = "";
+        memoria = [];
+        eventos = [];
+    }
+    else if (valorBoton === "=") {
+        if (resultado.value !== "" && resultado.value !== "-") {
+            memoria.push(parseFloat(resultado.value));
+        }
+        calcular();
+    }
+    else {
+        if (resultado.value === "" && valorBoton === "-") {
+            resultado.value = "-";
+        }
+        else if (resultado.value !== "" && resultado.value !== "-") {
+            memoria.push(parseFloat(resultado.value));
+            memoria.push(valorBoton);
+            resultado.value = "";
+        }
+    }
 }
+
+function calcular() {
+    if (memoria.length === 0) return;
+
+    let total = memoria[0];
+
+    for (let i = 1; i < memoria.length; i += 2) {
+        let operador = memoria[i];
+        let siguienteNumero = memoria[i + 1];
+        if (siguienteNumero !== undefined) {
+            if (operador === "+") total += siguienteNumero;
+            if (operador === "-") total -= siguienteNumero;
+            if (operador === "*") total *= siguienteNumero;
+            if (operador === "/") total /= siguienteNumero;
+        }
+    }
+
+    resultado.value = total;
+    memoria = [];
+}
+
+
